@@ -44,10 +44,7 @@ Optional arguments:
   -m <mode>     : Define operating mode for commands that modify firewall rulesets. Valid options:
                   -m simulation                 Print changes for review, do not apply to cloud (default)
                   -m commit                     Create backup and apply changes to cloud
-                  -m commit-no-backup           Apply changes to cloud without creating a backup
-
-The full manual for this script can be found here:
-https://github.com/meraki/automation-scripts/blob/master/mxfirewallcontrol_manual.pdf"""
+                  -m commit-no-backup           Apply changes to cloud without creating a backup"""
 
 
 #MODIFY THESE FLAGS TO CHANGE DEFAULT SCRIPT OPERATING PARAMETERS
