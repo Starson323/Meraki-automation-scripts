@@ -128,6 +128,8 @@ See also: [Meraki Enterprise Sandbox](https://devnetsandbox.cisco.com/RM/Diagram
 
 **checksubnets.py:** This is a script to check if the LAN IPs (management addresses) of all access points in one or more organizations belong to specific IPv4 subnets. The purpose of the script is to find access points with misconfigured management addresses or VLANs, which may cause issues with 802.1x authentications. The output can be displayed on screen or sent as an email report.
 
+**CiscoLive/createWebhookTemplate.py:** Script to create a custom webhook template.
+
 **clientcount.py:** Script to count the total unique client MAC addresses connected to MR access points for an organization during the last month. Can be used as guidance when sizing systems that have per-user licensing, like the Cisco Identity Services Engine.
 
 **clients_in_ip_range.py:** Prints a list of all clients in one or more organizations that belong to the specified IPv4 subnet or IPv4 address range. Can be used to check if a subnet is in use somewhere or to assess which clients will be affected by a proposed firewall rule change.
@@ -140,6 +142,8 @@ See also: [Meraki Enterprise Sandbox](https://devnetsandbox.cisco.com/RM/Diagram
 
 **copyswitchcfg.py:** This script can be used to export switchport configuration of a source org to a file and import it to a destination org. The script will look for the exact same network names and device serial numbers, as they were in the source org. Use copynetworks.py and movedevices.py to migrate networks and devices if needed.
 
+**daily_crossings.py:** Fetches line crossing detection events for MV cameras and exports them as CSV.
+
 **deployappliance.py:** This script claims a single Security Appliance or Teleworker Gateway into an organization, creates a new network for it and binds that network to an existing template.
 
 **deploycustomer.py:** The intent of this script is to automate customer account/organization creation for service providers. The script needs a source organization that will be used for cloning (a "customer template"). This source organization needs to have a network configuration template, which will be used to configure devices. The script will optionally set street addresses for devices, network administration tags, as well as network timezone if provided with a Google Maps API key.
@@ -147,6 +151,8 @@ See also: [Meraki Enterprise Sandbox](https://devnetsandbox.cisco.com/RM/Diagram
 **deploydevices.py:** This script claims multiple devices and licenses into an organization, creates a new network for them and binds that network to an existing template. Initial config, including hostnames and street address/map markers are set for the devices. Will set network timezone to match street address if provided with a Google Maps API key.
 
 **deviceupdownstatus.py:** Hybrid Dashboard API/SNMP script that prints a list of all devices in an organization's inventory, along with their current up/down status. Requires the Requests and PySNMP modules. Supports SNMPv2c and SNMPv3.
+
+**eos_scanner.py:** Scans one or more organizations for devices with announced End of Sales / End of Life dates.
 
 **find_clients.py:** Python 3 script that finds all clients with descriptions, MAC addresses or IP addresses including a query string and prints their basic statistics.
 
@@ -156,6 +162,8 @@ See also: [Meraki Enterprise Sandbox](https://devnetsandbox.cisco.com/RM/Diagram
 
 **getbeacons.py:** This script prints a list of all bluetooth beacons in an organization to terminal/sdtout or a file (Devices which are part of a network are considered in-use).
 
+**get_license_capacities_csv.py** Exports license capacity info across multiple Co-term or PDL organizations to CSV.
+
 **get_license_info.py** Prints the license info summary for a specific organization or all organizations an admin has access to.
 
 **googletimezonetest.py:** Example script that gets the time zone that corresponds to a street address by using Google Maps APIs. You can use this code to set network timezones dynamically in your Meraki Dashboard API scripts.
@@ -163,6 +171,8 @@ See also: [Meraki Enterprise Sandbox](https://devnetsandbox.cisco.com/RM/Diagram
 **inventorycsv.py:** Creates a list of all Meraki devices in one or all organizations accessible by an administrator. The primary purpose of the script is to create a CSV file, which can be opened and filtered with a spreadsheet editor, like Excel. The list can also be printed on screen instead.
 
 **invlist.py:** Creates a list of all serial numbers and models of devices that are part of a Meraki network for an organization with a given name. Can print to Stdout or file. See inventorycsv.py for an improved solution for this use case.
+
+**latest_devices.py:** Exports CSV of all in-use devices claimed after a specific date. Can include info for one or more organizations.
 
 **license_counts_csv.py:** Creates a CSV file with aggregated license info for all co-term organizations accessible by an administrator.
 
@@ -202,14 +212,19 @@ See also: [Meraki Enterprise Sandbox](https://devnetsandbox.cisco.com/RM/Diagram
 
 **postman_collection_generator.py:** A script to create a Postman collection for the Meraki Dashboard API v1. The collection is created by fetching the OpenAPI 2.0 specification of a Meraki dashboard organization. Items will created for all endpoints available to that organization, including possible alpha/beta ones.
 
+**privateApplicationsImport.py:** A Python 3 script helps you to import Meraki Secure Connect private applications from a CSV file into your Meraki Dashboard. It automates the process of creating private applications with various configurations.
+
 **provision_sites:** A Python 3 script to provision template-based networks with manually defined VLAN subnets to Meraki dashboard. The script can also claim devices and update their location on the world map.
+
+**reboot.py** A Python 3 script to reboot devices using a list of serial numbers
 
 **RadiusCertSurvey:** MFor Systems Manager Managed devices, it does a survey or every managed devices, and looks at the radius.meraki.com certificates on the device. For a given radius.meraki.com certificate expiration date, it checks to see if devices has the updated cert or does not.
 
 This is important because when the radius.meraki.com cert is renewed, if devices don't have the newest version, there's no full chain of trust on the device, so the device does NOT trust the inividual cert on the device, and, therefore, does not joing the Sentry enabled SSID. Once it falls off the network, there's a lot of work to get it back on.
 
-
 **removetemplate.py:** This is script to create a copy of a template-based network that preserves as many of the network's settings as possible, while not relying on a configuration template. The initial focus of the script is converting MX appliance networks.
+
+**remoteAccessLogsAnalyzer.py:** This script fetches and analyzes Meraki Secure Connect remote access logs from the Meraki API and generates statistics for selected columns. The results are displayed in a color-coded table, and the data can be saved to a CSV file.
 
 **set_client_tracking.py:** A script to set the client tracking method of a group of networks to a desired value.
 
